@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "189426037743",
+    "project_id": "notebookflutter",
+    "storage_bucket": "notebookflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189426037743:android:e21997f1b980df584afc1a",
+        "android_client_info": {
+          "package_name": "com.snaric.notebook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwFidmyIP-4gu3ipfkXk5f0TG4x3CkZTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
