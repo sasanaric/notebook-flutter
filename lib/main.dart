@@ -15,6 +15,10 @@ void main() {
       useMaterial3: true,
     ),
     home: const HomePage(),
+    routes: {
+      '/login/': (context) => const LoginView(),
+      '/register/': (context) => const RegisterView()
+    },
   ));
 }
 
@@ -28,32 +32,26 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-        backgroundColor: Colors.deepPurple,
+    return FutureBuilder(
+      future: Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
       ),
-      body: FutureBuilder(
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        ),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              final user = FirebaseAuth.instance.currentUser;
-              print(user);
-              final emailVerified = user?.emailVerified ?? false;
-              if (emailVerified) {
-                print("Email is verified");
-              } else {
-                print("Email is not verified");
-              }
-              return const Text("Done");
-            default:
-              return const Text("Loading...");
-          }
-        },
-      ),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.done:
+            // final user = FirebaseAuth.instance.currentUser;
+            // // print(user);
+            // final emailVerified = user?.emailVerified ?? false;
+            // if (emailVerified) {
+            //   return const Text("Done");
+            // } else {
+            //   return const VerifyEmailView();
+            // }
+            return const LoginView();
+          default:
+            return const CircularProgressIndicator();
+        }
+      },
     );
   }
 }
