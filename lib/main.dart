@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:notebook/firebase_options.dart';
+import 'package:notebook/views/login_view.dart';
+import 'package:notebook/views/register_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +41,7 @@ class _HomePageState extends State<HomePage> {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
               final user = FirebaseAuth.instance.currentUser;
+              print(user);
               final emailVerified = user?.emailVerified ?? false;
               if (emailVerified) {
                 print("Email is verified");

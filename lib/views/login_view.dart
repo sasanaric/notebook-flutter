@@ -69,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
                                 email: email, password: password);
                         print(userCredential);
                       } on FirebaseAuthException catch (e) {
-                        print('CATCH');
+                        print('CATCH\n');
                         if (e.code == 'invalid-credential') {
                           print('Invalid credentials');
                         }
