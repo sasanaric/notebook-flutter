@@ -1,1 +1,1 @@
-12.10.00
+15.58.00 add firebase factory to Auth Service
